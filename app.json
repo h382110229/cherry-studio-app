@@ -1,46 +1,20 @@
 {
   "expo": {
-    "name": "Cherry Studio",
-    "slug": "cherry-studio",
+    "name": "霍克のAI助手",
+    "slug": "hawk-ai",
     "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "cherrystudio",
+    "scheme": "hawkai",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
       "requireFullScreen": false,
       "icon": "./assets/icon.png",
-      "bundleIdentifier": "com.cherryai.cherrystudio-app",
-      "appleTeamId": "87242QY66T",
+      "bundleIdentifier": "com.hawk.assistant",
       "privacyManifests": {
         "NSPrivacyTracking": false,
-        "NSPrivacyCollectedDataTypes": [
-          {
-            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCrashData",
-            "NSPrivacyCollectedDataTypeLinked": false,
-            "NSPrivacyCollectedDataTypeTracking": false,
-            "NSPrivacyCollectedDataTypePurposes": [
-              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
-            ]
-          },
-          {
-            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypePerformanceData",
-            "NSPrivacyCollectedDataTypeLinked": false,
-            "NSPrivacyCollectedDataTypeTracking": false,
-            "NSPrivacyCollectedDataTypePurposes": [
-              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
-            ]
-          },
-          {
-            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherDiagnosticData",
-            "NSPrivacyCollectedDataTypeLinked": false,
-            "NSPrivacyCollectedDataTypeTracking": false,
-            "NSPrivacyCollectedDataTypePurposes": [
-              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
-            ]
-          }
-        ],
+        "NSPrivacyCollectedDataTypes": [],
         "NSPrivacyAccessedAPITypes": [
           {
             "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
@@ -57,8 +31,7 @@
         ]
       },
       "entitlements": {
-        "com.apple.developer.healthkit": true,
-        "com.apple.security.application-groups": ["group.com.cherryai.cherrystudio-app"]
+        "com.apple.security.application-groups": ["group.com.hawk.assistant"]
       },
       "infoPlist": {
         "UISupportedInterfaceOrientations~ipad": [
@@ -67,11 +40,10 @@
           "UIInterfaceOrientationLandscapeLeft",
           "UIInterfaceOrientationLandscapeRight"
         ],
-        "NSCalendarsWriteOnlyAccessUsageDescription": "Allow Cherry Studio to add calendar events when you ask the assistant.",
-        "NSHealthShareUsageDescription": "Allow Cherry Studio to read selected health and fitness data when you ask the assistant.",
-        "NSHealthUpdateUsageDescription": "Cherry Studio reads selected Apple Health data to answer your health and fitness questions. It does not save or modify data in Apple Health.",
-        "NSLocalNetworkUsageDescription": "Allow Cherry Studio to connect to the Cherry Studio desktop app, AI providers, and MCP servers on your local network.",
-        "NSBonjourServices": ["_cherrystudio-api._tcp"],
+        "NSCalendarsWriteOnlyAccessUsageDescription": "Allow Hawk AI Assistant to add calendar events when you ask the assistant.",
+        "NSHealthShareUsageDescription": "Allow Hawk AI Assistant to read selected health and fitness data when you ask the assistant.",
+        "NSHealthUpdateUsageDescription": "Hawk AI Assistant reads selected Apple Health data to answer your health and fitness questions. It does not save or modify data in Apple Health.",
+        "NSLocalNetworkUsageDescription": "Allow Hawk AI Assistant to connect to AI providers and MCP servers on your local network.",
         "NSAppTransportSecurity": {
           "NSAllowsLocalNetworking": true
         },
@@ -82,9 +54,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#F65D5D"
+        "backgroundColor": "#080B0C"
       },
-      "package": "com.cherryai.cherrystudio_app",
+      "package": "com.hawk.assistant",
       "predictiveBackGestureEnabled": false,
       "blockedPermissions": [
         "android.permission.RECORD_AUDIO",
@@ -126,14 +98,6 @@
       "./scripts/withAndroidBackgroundGeneration.js",
       "./scripts/withTabletOrientation.js",
       [
-        "@sentry/react-native/expo",
-        {
-          "url": "https://sentry.io/",
-          "organization": "cherryai",
-          "project": "cherry-studio-app"
-        }
-      ],
-      [
         "expo-widgets",
         {
           "enablePushNotifications": false
@@ -142,12 +106,12 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#FFFFFF",
+          "backgroundColor": "#080B0C",
           "image": "./assets/icon.png",
           "imageWidth": 96,
           "resizeMode": "contain",
           "dark": {
-            "backgroundColor": "#000000"
+            "backgroundColor": "#080B0C"
           }
         }
       ],
@@ -156,17 +120,17 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Allow Cherry Studio to scan desktop pairing QR codes and take photos for chat messages and drawings.",
+          "cameraPermission": "Allow Hawk AI Assistant to take photos for chat messages and drawings.",
           "microphonePermission": false,
           "recordAudioAndroid": false,
-          "barcodeScannerEnabled": true
+          "barcodeScannerEnabled": false
         }
       ],
       [
         "expo-calendar",
         {
-          "calendarPermission": "Allow Cherry Studio to access calendars when you ask the assistant.",
-          "remindersPermission": "Allow Cherry Studio to access reminders when you ask the assistant."
+          "calendarPermission": "Allow Hawk AI Assistant to access calendars when you ask the assistant.",
+          "remindersPermission": "Allow Hawk AI Assistant to access reminders when you ask the assistant."
         }
       ],
       [
@@ -177,8 +141,8 @@
           "isIosBackgroundLocationEnabled": false,
           "locationAlwaysAndWhenInUsePermission": false,
           "locationAlwaysPermission": false,
-          "motionUsagePermission": "Cherry Studio does not read or track your motion and fitness activity. This permission description is required by the location service included in the app.",
-          "locationWhenInUsePermission": "Allow Cherry Studio to use your location when you ask the assistant."
+          "motionUsagePermission": "Hawk AI Assistant does not read or track your motion and fitness activity. This permission description is required by the location service included in the app.",
+          "locationWhenInUsePermission": "Allow Hawk AI Assistant to use your location when you ask the assistant."
         }
       ],
       "expo-document-picker",
@@ -192,16 +156,16 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Allow Cherry Studio to preview and select photos for drawings and chat messages.",
-          "cameraPermission": "Allow Cherry Studio to scan desktop pairing QR codes and take photos for chat messages and drawings.",
+          "photosPermission": "Allow Hawk AI Assistant to preview and select photos for drawings and chat messages.",
+          "cameraPermission": "Allow Hawk AI Assistant to take photos for chat messages and drawings.",
           "microphonePermission": false
         }
       ],
       [
         "expo-media-library",
         {
-          "photosPermission": "Allow Cherry Studio to preview photos for drawings and chat messages.",
-          "savePhotosPermission": "Allow Cherry Studio to save photos.",
+          "photosPermission": "Allow Hawk AI Assistant to preview photos for drawings and chat messages.",
+          "savePhotosPermission": "Allow Hawk AI Assistant to save photos.",
           "preventAutomaticLimitedAccessAlert": true,
           "granularPermissions": ["photo"]
         }
@@ -229,26 +193,6 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    },
-    "extra": {
-      "eas": {
-        "projectId": "80096eaf-3ad0-4b87-a466-15f04da1bacc",
-        "build": {
-          "experimental": {
-            "ios": {
-              "appExtensions": [
-                {
-                  "targetName": "ExpoWidgetsTarget",
-                  "bundleIdentifier": "com.cherryai.cherrystudio-app.ExpoWidgetsTarget",
-                  "entitlements": {
-                    "com.apple.security.application-groups": ["group.com.cherryai.cherrystudio-app"]
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
     }
   }
 }
