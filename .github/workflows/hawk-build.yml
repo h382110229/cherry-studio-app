@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 env:
-  EAS_CLI_VERSION: 24.4.2
+  EAS_CLI_VERSION: 24.7.0
 
 concurrency:
   group: hawk-apk-build-${{ github.ref }}
@@ -28,7 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          persist-credentials: false
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -56,6 +56,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Initialize EAS project
+        run: eas init --account xhawk --non-interactive
+
       - name: Build Android on EAS and wait
         run: eas build --platform android --profile preview --non-interactive --wait --json > "$RUNNER_TEMP/android-build.json"
 
@@ -75,8 +78,6 @@ jobs:
           unzip -tq "$artifact_dir/$apk_name"
           unzip -Z1 "$artifact_dir/$apk_name" | grep -x 'AndroidManifest.xml'
           echo "APK_SIZE=$(du -h "$artifact_dir/$apk_name" | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
-          echo "### Hawk APK 构建完成" >> "$GITHUB_STEP_SUMMARY"
-          echo "下载下方 Artifacts 中的 hawk-apk 即可" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
@@ -86,3 +87,13 @@ jobs:
           if-no-files-found: error
           retention-days: 30
           overwrite: true
+
+      - name: Commit EAS project link
+        run: |
+          if ! git diff --quiet app.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add app.json
+            git commit -m "chore: link EAS project to xhawk account [skip ci]"
+            git push
+          fi
