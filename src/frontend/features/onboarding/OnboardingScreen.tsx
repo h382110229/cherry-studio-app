@@ -91,16 +91,6 @@ export function OnboardingScreen() {
             >
               {t('onboarding.welcome.connect')}
             </Button>
-            <Button
-              disabled={pendingAction !== null}
-              loading={pendingAction === 'desktop'}
-              onPress={() => void start('desktop')}
-              size="lg"
-              testID="onboarding-desktop-sync"
-              variant="outline"
-            >
-              {t('onboarding.welcome.desktopSync')}
-            </Button>
           </View>
           <View className="min-h-12 items-center justify-center">
             <Button
