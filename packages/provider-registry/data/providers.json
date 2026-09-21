@@ -10,6 +10,14 @@
           "reasoningFormat": {
             "type": "openai-chat"
           }
+        },
+        "openai-image-generation": {
+          "adapterFamily": "openai-compatible",
+          "baseUrl": "https://llmapi.ashawk.online/v1"
+        },
+        "openai-video-generation": {
+          "adapterFamily": "openai-compatible",
+          "baseUrl": "https://llmapi.ashawk.online/v1"
         }
       },
       "id": "hawk-ashawk",
@@ -31,6 +39,14 @@
           "reasoningFormat": {
             "type": "openai-chat"
           }
+        },
+        "openai-image-generation": {
+          "adapterFamily": "openai-compatible",
+          "baseUrl": "https://llmapi.hawkren.online/v1"
+        },
+        "openai-video-generation": {
+          "adapterFamily": "openai-compatible",
+          "baseUrl": "https://llmapi.hawkren.online/v1"
         }
       },
       "id": "hawk-hawkren",

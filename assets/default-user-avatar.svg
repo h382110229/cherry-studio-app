@@ -1,5 +1,16 @@
-<svg width="1158" height="1158" viewBox="0 0 1158 1158" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1158" height="1158" fill="#7EDBC2" fill-opacity="0.25"/>
-<circle cx="579.5" cy="447" r="202" fill="#49B8A3" fill-opacity="0.97"/>
-<path d="M579.5 689C796.272 689 972 864.728 972 1081.5C972 1081.67 971.998 1081.83 971.998 1082H972V1158H187V1082H187.002C187.002 1081.83 187 1081.67 187 1081.5C187 864.728 362.728 689 579.5 689Z" fill="#6ACBB9" fill-opacity="0.42"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="50%" style="stop-color:#16213e"/>
+      <stop offset="100%" style="stop-color:#0f3460"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4a574"/>
+      <stop offset="100%" style="stop-color:#c9956b"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#hg)" stroke="url(#accent)" stroke-width="3"/>
+  <path d="M30 28 L30 72 L40 72 L40 56 L60 56 L60 72 L70 72 L70 28 L60 28 L60 46 L40 46 L40 28 Z" fill="url(#accent)" opacity="0.95"/>
+  <path d="M50 20 L55 25 L50 22 L45 25 Z" fill="#d4a574" opacity="0.6"/>
 </svg>
