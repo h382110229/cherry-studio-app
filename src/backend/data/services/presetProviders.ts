@@ -14,15 +14,8 @@ import type { CreateProviderInput } from './ProviderService';
  * catalog remains bundled and can be imported from the provider catalog screen.
  */
 export const RECOMMENDED_PRESET_PROVIDER_IDS: readonly string[] = [
-  'cherryin',
-  'silicon',
-  'aihubmix',
-  'zhipu',
-  'deepseek',
-  'openrouter',
-  'anthropic',
-  'openai',
-  'gemini',
+  'hawk-ashawk',
+  'hawk-hawkren',
 ];
 
 const recommendedPresetProviderIds = new Set(RECOMMENDED_PRESET_PROVIDER_IDS);

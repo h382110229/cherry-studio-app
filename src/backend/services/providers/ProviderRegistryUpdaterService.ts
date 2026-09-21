@@ -108,15 +108,8 @@ export class ProviderRegistryUpdaterService extends BaseService {
   }
 
   private restoreSnapshot(): Promise<void> {
-    this.cacheInFlight ??=
-      Platform.OS === 'web'
-        ? Promise.resolve()
-        : this.activateCachedSnapshot().catch((error: unknown) => {
-            logger.warn(
-              'Could not restore the model registry; a download is required',
-              toError(error),
-            );
-          });
+    // Hawk AI Assistant: skip cached snapshot restore, use bundled data only
+    this.cacheInFlight ??= Promise.resolve();
     return this.cacheInFlight;
   }
 
@@ -203,43 +196,8 @@ export class ProviderRegistryUpdaterService extends BaseService {
   }
 
   private async runApplyUpdate(): Promise<ProviderRegistryUpdateResult> {
-    await this.restoreSnapshot();
-    const preferredSource = await this.findAvailableUpdate();
-    if (!preferredSource) {
-      return this.getCurrentUpdateStatus();
-    }
-
-    const sources = [
-      preferredSource,
-      ...this.getSourceOrder().filter((source) => source !== preferredSource),
-    ];
-    let lastError: Error | undefined;
-
-    for (const source of sources) {
-      if (this.stopped) {
-        return this.getCurrentUpdateStatus();
-      }
-
-      try {
-        const staged = await this.fetchAndValidate(source);
-        if (!staged) {
-          continue;
-        }
-
-        await this.applySnapshot(staged, source);
-        return { status: 'updated' };
-      } catch (error) {
-        lastError = toError(error);
-        if (!this.stopped) {
-          logger.warn('Registry update failed; trying the fallback source', lastError, { source });
-        }
-      }
-    }
-
-    if (lastError && !this.stopped) {
-      throw lastError;
-    }
-    return this.getCurrentUpdateStatus();
+    // Hawk AI Assistant: bundled-only, no remote updates
+    return { status: 'current' };
   }
 
   private async applySnapshot(

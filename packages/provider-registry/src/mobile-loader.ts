@@ -1,5 +1,7 @@
 import * as z from 'zod';
 
+import bundledModels from '../data/models.json';
+import bundledProviderModels from '../data/provider-models.json';
 import providersRegistry from '../data/providers.json';
 import type { ModelConfig } from './schemas/model';
 import { ModelListSchema } from './schemas/model';
@@ -129,6 +131,22 @@ function loadProvidersBundle(): ProvidersBundle {
   return parsedProviders;
 }
 
+
+// Hawk AI: bundled fallback snapshot (lazy-loaded once)
+let bundledSnapshot: MobileRemoteRegistrySnapshot | null = null;
+
+function getBundledSnapshot(): MobileRemoteRegistrySnapshot {
+  bundledSnapshot ??= parseBundledSnapshot();
+  return bundledSnapshot;
+}
+
+function parseBundledSnapshot(): MobileRemoteRegistrySnapshot {
+  return {
+    models: ModelListSchema.parse(bundledModels),
+    providerModels: ProviderModelListSchema.parse(bundledProviderModels),
+  };
+}
+
 export class MobileRegistryLoader {
   private remoteSnapshot: MobileRemoteRegistrySnapshot | null = null;
   private modelById: Map<string, ModelConfig> | null = null;
@@ -190,7 +208,7 @@ export class MobileRegistryLoader {
   }
 
   isReady(): boolean {
-    return this.remoteSnapshot !== null;
+    return true;
   }
 
   assertReady(): void {
@@ -199,7 +217,7 @@ export class MobileRegistryLoader {
 
   private requireSnapshot(): MobileRemoteRegistrySnapshot {
     if (!this.remoteSnapshot) {
-      throw new Error('Model registry has not been downloaded yet');
+      return getBundledSnapshot();
     }
     return this.remoteSnapshot;
   }
