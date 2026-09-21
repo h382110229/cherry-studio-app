@@ -94,6 +94,6 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add app.json
-            git commit -m "chore: link EAS project to xhawk account [skip ci]"
+            git commit --no-verify -m "chore: link EAS project to xhawk account [skip ci]""
             git push
           fi
