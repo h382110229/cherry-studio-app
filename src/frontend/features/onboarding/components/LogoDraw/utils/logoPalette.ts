@@ -6,7 +6,7 @@
  */
 export const logoBrandColors = {
   /** Swirl strokes (`.cls-1` in the source SVG). */
-  swirl: '#ea5e5d',
+  swirl: '#c9956b'  /* Hawk Champagne Gold */,
   /** Check mark — the cherry stem (`.cls-2`). */
-  check: '#23af69',
+  check: '#4a9b8e'  /* Hawk Teal */,
 } as const;

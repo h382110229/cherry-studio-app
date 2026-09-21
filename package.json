@@ -187,7 +187,8 @@
     "tokenx": "^1.1.0",
     "uniwind": "^1.6.4",
     "uuid": "^14.0.0",
-    "zod": "^4.4.3"
+    "zod": "^4.4.3",
+    "expo-updates": "~57.0.23"
   },
   "devDependencies": {
     "@babel/generator": "^7.29.7",

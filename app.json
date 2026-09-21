@@ -102,7 +102,7 @@
       [
         "expo-notifications",
         {
-          "icon": "./assets/cherry-studio-logo.png"
+          "icon": "./assets/icon.png"
         }
       ],
       "./scripts/withAndroidBackgroundGeneration.js",
@@ -232,6 +232,15 @@
       },
       "router": {}
     },
-    "owner": "xhawk"
+    "owner": "xhawk",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/PLACEHOLDER_PROJECT_ID",
+      "fallbackToCacheTimeout": 0,
+      "checkAutomatically": "ON_LOAD",
+      "channel": "preview"
+    }
   }
 }

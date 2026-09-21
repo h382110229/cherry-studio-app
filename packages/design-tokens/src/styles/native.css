@@ -151,7 +151,7 @@
       --card-foreground: var(--gray-1000);
       --popover: var(--background-100);
       --popover-foreground: var(--gray-1000);
-      --primary: var(--green-900);
+      --primary: oklch(0.62 0.09 172);
       --primary-foreground: var(--background-100);
       --secondary: var(--gray-alpha-100);
       --secondary-foreground: var(--gray-1000);
@@ -186,7 +186,7 @@
       --border-selected: var(--gray-alpha-700);
       --link: var(--blue-900);
       --secondary-active: var(--gray-alpha-300);
-      --control-active: oklch(0.67 0.192 146);
+      --control-active: oklch(0.62 0.09 172);
       --success: var(--green-900);
       --success-subtle: var(--green-100);
       --success-subtle-foreground: var(--green-1000);
@@ -206,7 +206,7 @@
       --code-block: var(--gray-100);
       --inline-code: var(--gray-alpha-100);
       --inline-code-foreground: var(--primary);
-      --brand: #ff5757;
+      --brand: oklch(0.72 0.10 58);
       --chat-user: var(--gray-alpha-100);
       --chat-background: #f9f9f9;
       --tag-amber: var(--amber-100);
@@ -275,7 +275,7 @@
       --card-foreground: var(--gray-1000);
       --popover: var(--gray-100);
       --popover-foreground: var(--gray-1000);
-      --primary: var(--green-900);
+      --primary: oklch(0.62 0.09 172);
       --primary-foreground: var(--background-100);
       --secondary: var(--gray-alpha-100);
       --secondary-foreground: var(--gray-1000);
@@ -310,7 +310,7 @@
       --border-selected: var(--gray-alpha-700);
       --link: var(--blue-900);
       --secondary-active: var(--gray-alpha-300);
-      --control-active: oklch(0.67 0.192 146);
+      --control-active: oklch(0.62 0.09 172);
       --success: var(--green-900);
       --success-subtle: var(--green-100);
       --success-subtle-foreground: var(--green-1000);
@@ -330,7 +330,7 @@
       --code-block: var(--gray-100);
       --inline-code: var(--gray-alpha-100);
       --inline-code-foreground: var(--primary);
-      --brand: #ff5757;
+      --brand: oklch(0.72 0.10 58);
       --chat-user: var(--gray-alpha-100);
       --chat-background: var(--background);
       --tag-amber: var(--amber-100);

@@ -66,5 +66,13 @@
         "ascAppId": "6809783714"
       }
     }
+  },
+  "update": {
+    "preview": {
+      "channel": "preview"
+    },
+    "production": {
+      "channel": "production"
+    }
   }
 }

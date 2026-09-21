@@ -33,7 +33,7 @@
    * interaction states as hover, which a touch surface does not have. */
   --secondary-active: var(--gray-alpha-300);
   /* Fixed control fill from desktop's switch brand-600; not a text color. */
-  --control-active: oklch(0.67 0.192 146);
+  --control-active: oklch(0.62 0.09 172);  /* Hawk Teal */
 
   /* Feedback.
    * 每个 intent 的 base 档位不同（error/info 取 700，success/warning 取 900），
@@ -64,7 +64,7 @@
   --inline-code-foreground: var(--primary);
 
   /* Fixed logo artwork color. Actions and content must use their semantic roles. */
-  --brand: #ff5757;
+  --brand: oklch(0.72 0.10 58);  /* Hawk Champagne Gold */
 
   /* Stable product domain: user-message surface (UserMessageItem) */
   --chat-user: var(--gray-alpha-100);
