@@ -1,0 +1,43 @@
+name: EAS Update (Hot OTA)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: hawk-update
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/hawk'
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 12.2.1
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.19.0
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run typecheck, test and lint
+        run: |
+          pnpm typecheck
+        env:
+          TS_NODE_TRANSPILE_ONLY: "1"
+
+      - run: pnpm test
+
+      - run: pnpm lint
+
+      - name: Publish EAS Update
+        run: npx eas-cli update --branch preview --message "OTA update: ${GITHUB_SHA::7}" --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          CI: "true"
