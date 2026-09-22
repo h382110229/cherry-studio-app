@@ -232,13 +232,6 @@
       },
       "router": {}
     },
-    "owner": "xhawk",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/25d2377d-bb12-4026-816b-08ab9857fb89",
-      "checkAutomatically": "ON_ERROR_RECOVERY"
-    }
+    "owner": "xhawk"
   }
 }
