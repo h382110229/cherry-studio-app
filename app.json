@@ -102,7 +102,7 @@
       [
         "expo-notifications",
         {
-          "icon": "./assets/icon.png"
+          "icon": "./assets/cherry-studio-splash-logo.png"
         }
       ],
       "./scripts/withAndroidBackgroundGeneration.js",
@@ -116,7 +116,7 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#080B0C",
+          "backgroundColor": "#1a1a2e",
           "image": "./assets/icon.png",
           "imageWidth": 96,
           "resizeMode": "contain",
@@ -238,9 +238,7 @@
     },
     "updates": {
       "url": "https://u.expo.dev/25d2377d-bb12-4026-816b-08ab9857fb89",
-      "fallbackToCacheTimeout": 0,
-      "checkAutomatically": "ON_LOAD",
-      "channel": "preview"
+      "checkAutomatically": "ON_ERROR_RECOVERY"
     }
   }
 }
